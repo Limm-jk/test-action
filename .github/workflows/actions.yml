@@ -19,3 +19,13 @@ jobs:
       run: |
         echo "hello"
         echo %{{ matrix.os }}
+    - name: echo true
+      if: ${{ matrix.os == 'ubuntu-latest' && 1 == 1}}
+      run: |
+        echo "hello2"
+        echo %{{ matrix.os }}
+    - name: echo false
+      if: ${{ matrix.os == 'ubuntu-latest' && 1 == 2}}
+      run: |
+        echo "hello3"
+        echo %{{ matrix.os }}
